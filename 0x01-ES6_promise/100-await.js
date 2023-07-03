@@ -14,6 +14,7 @@ export default async function asyncUploadUser() {
       return resp;
     });
   } catch (e) {
+    console.error(e.message);
     return resp;
   }
 }
