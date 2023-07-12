@@ -20,8 +20,9 @@ function printTeacher (firstName: string, lastName: string) {
 }
 
 
-interface StudentConstructor {
-    new (firstName:string, lastName: string): Student;
+interface studentInfo {
+    firstName:string;
+    lastName: string;
 }
 
 interface Student {
@@ -32,9 +33,9 @@ interface Student {
 class StudentClass implements Student {
     firstName: string;
     lastName: string;
-    constructor(firstName:string, lastName: string) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    constructor(studentInfo: studentInfo) {
+        this.firstName = studentInfo.firstName;
+        this.lastName = studentInfo.lastName;
     }
     workOnHomework(): string {
         return "Currently working";
