@@ -1,5 +1,5 @@
 function displayMessage (message) {
-  if (typeof message === 'string'){
+  if (typeof message === 'string') {
     console.log(message);
   }
 }
