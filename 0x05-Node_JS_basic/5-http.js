@@ -7,7 +7,7 @@ const app = http.createServer(async (req, res) => {
     if (req.url === '/') {
       res.setHeader('Content-Type', 'text/plain');
       res.statusCode = 200;
-      res.end('Hello Holberton School!\n');
+      res.end('Hello Holberton School!');
     } else if (req.url === '/students') {
       try {
         const db = process.argv[2];

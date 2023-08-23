@@ -3,8 +3,10 @@ const http = require('http');
 const app = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.statusCode = 200;
-  res.end('Hello Holberton School!\n');
+  res.end('Hello Holberton School!');
 });
-app.listen(1245);
+
+const PORT = 1245;
+app.listen(PORT);
 
 module.exports = app;

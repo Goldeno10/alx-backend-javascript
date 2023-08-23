@@ -19,19 +19,14 @@ Task:
     + valid student!
 */
 const fs = require('fs');
-// const csv = require('csv-parser');
 
 function countStudents(filePath) {
   try {
-    // Read the CSV file synchronously
     const data = fs.readFileSync(filePath, 'utf8');
-
-    // Split the CSV data into lines and filter out empty lines
     let lines = data.split('\n').filter((line) => line.trim() !== '');
     lines = lines.slice(1);
 
     const fieldCounters = {};
-
     lines.forEach((line) => {
       const fields = line.split(',');
       const firstName = fields[0];
@@ -40,13 +35,11 @@ function countStudents(filePath) {
       if (fieldCounters[field] === undefined) {
         fieldCounters[field] = [];
       }
-
       if (firstName) {
         fieldCounters[field].push(firstName.trim());
       }
     });
 
-    // Log the results
     console.log('Number of students:', lines.length);
     for (const field in fieldCounters) {
       if (field) {
