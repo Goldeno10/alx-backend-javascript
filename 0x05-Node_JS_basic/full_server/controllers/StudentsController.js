@@ -1,16 +1,15 @@
 const { readDatabase } = require('./utils'); // Import the readDatabase function from your utils file
 
 class StudentsController {
-  static async getAllStudents(req, res) {
+  static getAllStudents(req, res) {
     try {
-      const databasePath = 'database.csv'; // Set the path to your database file
-      const data = await readDatabase(databasePath);
+      const databasePath = 'database.csv';
+      const data = readDatabase(databasePath);
 
       const responseLines = [];
 
       responseLines.push('This is the list of our students');
 
-      // Sort fields alphabetically (case-insensitive)
       const sortedFields = Object.keys(data).sort((a, b) =>
         a.localeCompare(b, undefined, { sensitivity: 'base' })
       );
@@ -29,7 +28,7 @@ class StudentsController {
     }
   }
 
-  static async getAllStudentsByMajor(req, res) {
+  static getAllStudentsByMajor(req, res) {
     try {
       const major = req.query.major;
       const allowedMajors = ['CS', 'SWE'];
@@ -39,7 +38,7 @@ class StudentsController {
       }
 
       const databasePath = 'database.csv'; // Set the path to your database file
-      const data = await readDatabase(databasePath);
+      const data = readDatabase(databasePath);
 
       const studentsInMajor = data[major] || []; // Get students in the specified major
 
