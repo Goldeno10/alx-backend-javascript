@@ -1,6 +1,5 @@
-#!/usr/bin/env node
 const http = require('http');
-const fs = require('fs/promises'); // Use fs.promises for async file operations
+const fs = require('fs/promises');
 
 const app = http.createServer(async (req, res) => {
   if (req.method === 'GET') {
