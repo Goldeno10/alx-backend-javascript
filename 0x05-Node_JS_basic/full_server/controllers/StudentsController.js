@@ -1,4 +1,4 @@
-const { readDatabase } = require('./utils'); // Import the readDatabase function from your utils file
+const { readDatabase } = require('./utils');
 
 class StudentsController {
   static getAllStudents(req, res) {
@@ -10,11 +10,9 @@ class StudentsController {
 
       responseLines.push('This is the list of our students');
 
-      const sortedFields = Object.keys(data).sort((a, b) =>
-        a.localeCompare(b, undefined, { sensitivity: 'base' })
-      );
+      const sortedFields = Object.keys(data).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
 
-      sortedFields.forEach(field => {
+      sortedFields.forEach((field) => {
         const students = data[field];
         const numOfStudents = students.length;
         const studentList = students.join(', ');
@@ -28,9 +26,10 @@ class StudentsController {
     }
   }
 
+  // eslint-disable-next-line consistent-return
   static getAllStudentsByMajor(req, res) {
     try {
-      const major = req.query.major;
+      const { major } = req.query;
       const allowedMajors = ['CS', 'SWE'];
 
       if (!allowedMajors.includes(major)) {
