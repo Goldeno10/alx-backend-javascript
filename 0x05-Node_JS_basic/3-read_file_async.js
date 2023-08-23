@@ -9,12 +9,12 @@ function countStudents(filePath) {
       }
 
       // Split the CSV data into lines and filter out empty lines
-      let lines = data.split('\n').filter(line => line.trim() !== '');
+      let lines = data.split('\n').filter((line) => line.trim() !== '');
       lines = lines.slice(1);
 
       const fieldCounters = {};
 
-      lines.forEach(line => {
+      lines.forEach((line) => {
         const fields = line.split(',');
         if (fields.length >= 4) {
           const field = fields[3].trim();
@@ -25,13 +25,14 @@ function countStudents(filePath) {
 
           fieldCounters[field].push(fields[0].trim());
         }
-        
       });
       console.log('Number of students: ', lines.length);
       for (const field in fieldCounters) {
-        console.log(
-            `Number of students in ${field}: ${fieldCounters[field].length}. List: ${fieldCounters[field].join(', ')}`
-            );
+        if (field) {
+          console.log(
+            `Number of students in ${field}: ${fieldCounters[field].length}. List: ${fieldCounters[field].join(', ')}`,
+          );
+        }
       }
       resolve(fieldCounters);
     });

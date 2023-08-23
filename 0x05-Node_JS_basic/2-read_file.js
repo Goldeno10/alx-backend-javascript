@@ -19,7 +19,7 @@ Task:
     + valid student!
 */
 const fs = require('fs');
-const csv = require('csv-parser');
+// const csv = require('csv-parser');
 
 function countStudents(filePath) {
   try {
@@ -27,12 +27,12 @@ function countStudents(filePath) {
     const data = fs.readFileSync(filePath, 'utf8');
 
     // Split the CSV data into lines and filter out empty lines
-    let lines = data.split('\n').filter(line => line.trim() !== '');
+    let lines = data.split('\n').filter((line) => line.trim() !== '');
     lines = lines.slice(1);
 
     const fieldCounters = {};
 
-    lines.forEach(line => {
+    lines.forEach((line) => {
       const fields = line.split(',');
       const firstName = fields[0];
       const field = fields[3];
@@ -49,7 +49,9 @@ function countStudents(filePath) {
     // Log the results
     console.log('Number of students:', lines.length);
     for (const field in fieldCounters) {
-      console.log(`Number of students in ${field}: ${fieldCounters[field].length}. List: ${fieldCounters[field].join(', ')}`);
+      if (field) {
+        console.log(`Number of students in ${field}: ${fieldCounters[field].length}. List: ${fieldCounters[field].join(', ')}`);
+      }
     }
   } catch (error) {
     console.error('Cannot load the database');
