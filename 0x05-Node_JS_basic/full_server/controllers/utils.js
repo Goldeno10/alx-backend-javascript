@@ -17,7 +17,7 @@ function readDatabase(filePath) {
             fieldCounters[field] = [];
           }
 
-          fieldCounters[field].push(fields[1].trim()); // Assuming first name is at index 1
+          fieldCounters[field].push(fields[1].trim());
         }
       });
 
@@ -27,12 +27,3 @@ function readDatabase(filePath) {
     }
   });
 }
-
-// Example usage:
-readDatabase('database.csv')
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });

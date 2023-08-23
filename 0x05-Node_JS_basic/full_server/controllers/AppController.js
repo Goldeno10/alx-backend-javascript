@@ -4,5 +4,5 @@ class AppController {
   }
 }
   
-  module.exports = AppController;
+module.exports = AppController;
   

@@ -1,10 +1,6 @@
 const { readDatabase } = require('./utils'); // Import the readDatabase function from your utils file
 
-class AppController {
-  static getHomepage(req, res) {
-    res.status(200).send('Hello Holberton School!');
-  }
-
+class StudentsController {
   static async getAllStudents(req, res) {
     try {
       const databasePath = 'database.csv'; // Set the path to your database file
@@ -32,6 +28,30 @@ class AppController {
       res.status(500).send('Cannot load the database');
     }
   }
+
+  static async getAllStudentsByMajor(req, res) {
+    try {
+      const major = req.query.major;
+      const allowedMajors = ['CS', 'SWE'];
+
+      if (!allowedMajors.includes(major)) {
+        return res.status(500).send('Major parameter must be CS or SWE');
+      }
+
+      const databasePath = 'database.csv'; // Set the path to your database file
+      const data = await readDatabase(databasePath);
+
+      const studentsInMajor = data[major] || []; // Get students in the specified major
+
+      const responseLines = [];
+
+      responseLines.push(`List of students in ${major}: ${studentsInMajor.join(', ')}`);
+
+      res.status(200).send(responseLines.join('\n'));
+    } catch (error) {
+      res.status(500).send('Cannot load the database');
+    }
+  }
 }
 
-module.exports = AppController;
+module.exports = StudentsController;
