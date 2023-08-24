@@ -17,11 +17,17 @@ Task:
 */
 console.log('Welcome to Holberton School, what is your name?');
 process.stdin.setEncoding('utf8');
-process.stdin.on('readable', () => {
-  const answer = process.stdin.read();
-  if (answer !== null) {
-    process.stdout.write('Your name is: ', answer);
+process.stdin.on('data', (chunk) => {
+  const answer = chunk.trim();
+  if (answer !== '') {
+    process.stdout.write(`Your name is: ${answer}\n`);
+    process.stdout.write('This important software is now closing\n');
+
+    // Exit gracefully
+    process.exit(0);
   }
+  process.stdout.write('This important software is now closing\n');
+  process.exit(0);
 });
 
 process.on('SIGINT', () => {
