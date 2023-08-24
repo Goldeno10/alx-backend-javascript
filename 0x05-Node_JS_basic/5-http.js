@@ -45,18 +45,10 @@ const app = http.createServer(async (req, res) => {
         }
       } catch (error) {
         res.setHeader('Content-Type', 'text/plain');
-        res.statusCode = 500;
-        res.end('Internal Server Error');
+        res.statusCode = 200;
+        res.end('Hello Holberton School!');
       }
-    } else {
-      res.setHeader('Content-Type', 'text/plain');
-      res.statusCode = 404;
-      res.end('Not Found');
     }
-  } else {
-    res.setHeader('Content-Type', 'text/plain');
-    res.statusCode = 405;
-    res.end('Method Not Allowed');
   }
 });
 
