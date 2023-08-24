@@ -40,7 +40,7 @@ function countStudents(filePath) {
       }
     });
 
-    console.log('Number of students:', lines.length);
+    console.log(`Number of students: ${lines.length}`);
     for (const field in fieldCounters) {
       if (field) {
         console.log(`Number of students in ${field}: ${fieldCounters[field].length}. List: ${fieldCounters[field].join(', ')}`);

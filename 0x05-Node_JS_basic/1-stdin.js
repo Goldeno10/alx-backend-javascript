@@ -23,7 +23,6 @@ process.stdin.on('data', (chunk) => {
     process.stdout.write(`Your name is: ${answer}\n`);
     process.stdout.write('This important software is now closing\n');
 
-    // Exit gracefully
     process.exit(0);
   }
   process.stdout.write('This important software is now closing\n');
