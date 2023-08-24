@@ -23,11 +23,9 @@ const app = http.createServer(async (req, res) => {
               if (!fieldCounters[field]) {
                 fieldCounters[field] = [];
               }
-
               fieldCounters[field].push(fields[0].trim());
             }
           });
-
           res.setHeader('Content-Type', 'text/plain');
           res.statusCode = 200;
 
