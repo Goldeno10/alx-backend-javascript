@@ -42,7 +42,6 @@ const app = http.createServer(async (req, res) => {
           res.end();
         }
       }
-    
     }
   }
 });
