@@ -49,7 +49,6 @@ app.get('/students', async (req, res) => {
         fieldCounters[field].push(fields[0].trim());
       }
     });
-
     const responseBody = [];
 
     responseBody.push('This is the list of our students');

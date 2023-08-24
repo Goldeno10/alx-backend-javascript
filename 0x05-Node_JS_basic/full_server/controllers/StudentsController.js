@@ -36,10 +36,10 @@ class StudentsController {
         return res.status(500).send('Major parameter must be CS or SWE');
       }
 
-      const databasePath = 'database.csv'; // Set the path to your database file
+      const databasePath = 'database.csv';
       const data = readDatabase(databasePath);
 
-      const studentsInMajor = data[major] || []; // Get students in the specified major
+      const studentsInMajor = data[major] || [];
 
       const responseLines = [];
 
