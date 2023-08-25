@@ -16,6 +16,4 @@ describe('calculateNumber', () => {
   it('should return Error', function () {
     assert.strictEqual(calculateNumber('DIVIDE', 1.4, 0), 'Error')
   })
-
 });
-
