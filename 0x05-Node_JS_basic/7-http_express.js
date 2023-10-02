@@ -55,11 +55,11 @@ app.get('/students', async (req, res) => {
 
     for (const field in fieldCounters) {
       if (field) {
-        responseBody.push(`\nNumber of students in ${field}: ${fieldCounters[field].length}. List: ${fieldCounters[field].join(', ')}`);
+        responseBody.push(`Number of students in ${field}: ${fieldCounters[field].length}. List: ${fieldCounters[field].join(', ')}`);
       }
     }
 
-    res.setHeader('Content-Type', 'text/plain');
+    // res.setHeader('Content-Type', 'text/plain');
     return res.status(200).send(responseBody.join('\n'));
   } catch (error) {
     return res.status(500).send('Internal Server Error');
