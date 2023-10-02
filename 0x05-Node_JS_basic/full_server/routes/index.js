@@ -1,8 +1,8 @@
 const express = require('express');
 
 const router = express.Router();
-const AppController = require('../AppController');
-const StudentsController = require('../StudentsController');
+const AppController = require('../controllers/AppController');
+const StudentsController = require('../controllers/StudentsController');
 
 // Define the route for the root ("/") to the AppController
 router.get('/', AppController.getHomepage);
