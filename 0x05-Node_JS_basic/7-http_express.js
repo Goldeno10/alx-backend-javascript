@@ -55,7 +55,7 @@ app.get('/students', async (req, res) => {
 
     for (const field in fieldCounters) {
       if (field) {
-        responseBody.push(`Number of students in ${field}: ${fieldCounters[field].length}. List: ${fieldCounters[field].join(', ')}`);
+        responseBody.push(`\nNumber of students in ${field}: ${fieldCounters[field].length}. List: ${fieldCounters[field].join(', ')}`);
       }
     }
 
