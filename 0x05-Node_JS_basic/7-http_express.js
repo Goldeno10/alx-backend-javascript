@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /*
 Task:
     Create a more complex HTTP server using Express
@@ -29,7 +28,7 @@ app.get('/', (req, res) => {
 
 app.get('/students', async (req, res) => {
   try {
-    const db = process.argv[2]; // Get the database filename from command line arguments
+    const db = process.argv[2];
     if (!db) {
       return res.status(400).send('Bad Request: Database filename missing.');
     }
