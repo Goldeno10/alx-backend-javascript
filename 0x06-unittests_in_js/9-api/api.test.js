@@ -1,5 +1,5 @@
 const request = require('request');
-const app = require('./api'); // Import both the app and server
+const app = require('./api');
 
 describe('Index page', () => {
   it('should return status code 200', (done) => {
